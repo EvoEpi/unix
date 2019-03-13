@@ -118,3 +118,8 @@ __Print between two delimiters.__ Useful for extracting one to several sequences
 awk '/>gene1|>gene2|>gene3/{flag=1;print;next}/>/{flag=0}flag' in.fasta > out.fasta
 ```
 
+__Search and replace.__
+
+```bash
+awk  '{gsub("/","\t",$0); print;}' filename
+```
