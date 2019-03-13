@@ -115,7 +115,7 @@ The `>>` is used to append instead of overwrite.
 Thus, to place the sentence "One does not simply walk into Mordor." into a file `quote.txt` we type:
 
 ```bash
-echo "One does not simply walk into Mordor." > quote.txt
+echo "One does not simply walk into Mordor" > quote.txt
 ```
 
 (echo is a command that prints whatever is after it to the screen)
@@ -123,7 +123,7 @@ echo "One does not simply walk into Mordor." > quote.txt
 If we then want to add the contents of `quote.txt` we type:
 
 ```bash
-echo "They've taken the hobbits to Idsengard!" >> quote.txt
+echo "They've taken the hobbits to Idsengard" >> quote.txt
 ```
 
 __Tab completion.__ The tab button can be used to complete file/directory names and do quick lookup of commands.
