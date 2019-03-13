@@ -143,12 +143,12 @@ The asterisk (`*`) is referred to as a wildcard symbol in unix. This allows for 
 
 A for loop has the syntax:
 
-for <variable> in <list>
-do
-<task1 to repeat for each item in list>
-<task2 to repeat for each item in list>
-<task3 to repeat for each item in list>
-done
+for <variable> in <list>  
+do  
+\<task1 to repeat for each item in list\>  
+\<task2 to repeat for each item in list\>  
+\<task3 to repeat for each item in list\>  
+done  
 
 Or in a bash shell:
 
@@ -184,16 +184,16 @@ done
 
 __Grep.__ Grep is a tool for searching files for a specific content. It has many applications and some will be explained here. The basic syntax of grep is:
 
-grep <search pattern> <filename>
+grep \<search pattern\> \<filename\>
 
 Flags can be used to modify these results in many useful ways. For example:
 
-grep -n <search pattern> <filename> will print the line number of the result beside each matching line
-grep -v <search pattern> <filename> will find the lines which don’t contain the search pattern
-grep -c <search pattern> <filename> does not return the lines that match but instead returns a count of the number of lines that contained a hit
-grep -i <search pattern> <filename> use a case insensitive match (meaning B and b are the same thing)
-grep -A 5 <search pattern> <filename> will print the 5 lines that come after a line that matches the pattern
-grep -B 5 <search pattern> <filename> will print the 5 lines that come before a line that matches the pattern
+grep -n \<search pattern\> \<filename\> will print the line number of the result beside each matching line  
+grep -v \<search pattern\> \<filename\> will find the lines which don’t contain the search pattern  
+grep -c \<search pattern\> \<filename\> does not return the lines that match but instead returns a count of the number of lines that contained a hit  
+grep -i \<search pattern\> \<filename\> use a case insensitive match (meaning B and b are the same thing)  
+grep -A 5 \<search pattern\> \<filename\> will print the 5 lines that come after a line that matches the pattern  
+grep -B 5 \<search pattern\> \<filename\> will print the 5 lines that come before a line that matches the pattern  
 
 These can then be combined so that, for example, grep -vc <search pattern> <filename> will return a count of the lines that don’t contain the provided search pattern
 
