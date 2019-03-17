@@ -12,6 +12,8 @@ The command comes first (such as cd or ls as we will see later) then any options
 
 __KILL IT!__ If you are running a process or program and it is stuck or doing something you don’t want then holding control and pressing c (control+c) will kill the current process and return you to your prompt.
 
+__Naming files.__ In the sections below you will see that spaces are used to separate commands from options from targets. Thus, it is good practice not to put spaces into file or directories as this will make it difficult to run commands. It is better to use capitals or underscores to separate words in filenames. You should also not use 'weird' symbols such as '\\', '/', '?', '\*', etc. as these are used by the system to do special commands.
+
 __Navigation.__ In order to navigate around the directory structure you first need to know where you are in that structure currently. This is done using the command 'print working directory':
 
 ```bash
@@ -103,6 +105,42 @@ rename D1_ D01_ *.fastq.gz
 ```
 
 The above command replaces 'D1_' with 'D01_' for any file ending with '.fastq.gz'.
+
+__Viewing file contents.__ There are several commands and ways for viewing files without an editor.
+
+To print the entire contents of a file to screen you can use the command `cat`:
+
+```bash
+cat <filename>
+```
+
+`cat` is not very useful (or advisable) for large files. For large files it is better to use interactive viewers, like `less`:
+
+```bash
+less <filename>
+```
+
+With `less` the file is then displayed one screen length at a time. Certain commands are then used to go back and forward through the file:
+
+space bar: display the next page  
+b: display the previous page  
+enter/return: display the next line  
+k: display the previous line  
+q: quit the viewer  
+
+If a file contains very long lines, these lines will wrap to fit the screen width. This can result in a confusing display, especially if there are, for example, long sequences in your file. To stop this we can use the `-S` flag with `less`:
+
+```bash
+less -S <filename>
+```
+
+You can scroll horizontally across lines using the arrow keys.
+
+To view a certain number of lines at the start or end of a file we use `head` and `tail`, respectively. For example, to view the file 50 lines:
+
+```bash
+head -n 50 <filename>
+```
 
 ## Advanced shell commands
 
