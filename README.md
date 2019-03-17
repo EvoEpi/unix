@@ -106,6 +106,8 @@ rename D1_ D01_ *.fastq.gz
 
 The above command replaces 'D1_' with 'D01_' for any file ending with '.fastq.gz'.
 
+__scp.__ FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN
+
 __Viewing file contents.__ There are several commands and ways for viewing files without an editor.
 
 To print the entire contents of a file to screen you can use the command `cat`:
@@ -165,6 +167,10 @@ echo "They've taken the hobbits to Idsengard" >> quote.txt
 ```
 
 __Tab completion.__ The tab button can be used to complete file/directory names and do quick lookup of commands.
+
+## Pipe
+
+FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN 
 
 ## Loops
 
