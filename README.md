@@ -106,7 +106,19 @@ rename D1_ D01_ *.fastq.gz
 
 The above command replaces 'D1_' with 'D01_' for any file ending with '.fastq.gz'.
 
-__scp.__ FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN
+__scp.__ Copying files between a server and your local computer is done through a method called `scp` (secure copy):
+
+```bash
+scp username@xfer.gacrc.uga.edu:/PATH/TO/FILE/my_file.txt /Users/HAL/Documents/
+```
+
+The above command will copy `my_file.txt` from a server to my `Documents` directory.
+
+To transfer a file to your present working directory (`pwd`) replace the path on your local computer with a period (`.`):
+
+```bash
+scp username@xfer.gacrc.uga.edu:/PATH/TO/FILE/my_file.txt .
+```
 
 __Viewing file contents.__ There are several commands and ways for viewing files without an editor.
 
@@ -170,7 +182,11 @@ __Tab completion.__ The tab button can be used to complete file/directory names 
 
 ## Pipe
 
-FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN 
+FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN
+
+```bash
+cut -f4 my.bed | sort | uniq -c | sort -nk1,1
+```
 
 ## Loops
 
@@ -180,7 +196,7 @@ A __variable__ is a placeholder for some text such as a directory name, filename
 
 ```bash
 MYVAR="Hello world"
-echo ${MYVAR}
+echo $MYVAR
 ```
 
 The asterisk (`*`) is referred to as a wildcard symbol in unix. This allows for matching of filenames, directories etc. that all have a certain sections of their name in common. For example, if all your files start with 'cornus_florida' (e.g. cornus_florida_species.txt, cornus_florida_locations, cornus_florida) these will all be recognised using `cornus_florida*`. Alternatively if they all end with `.txt` you can loop over them all using the `*.txt`.
