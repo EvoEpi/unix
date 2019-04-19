@@ -180,17 +180,13 @@ echo "They've taken the hobbits to Idsengard" >> quote.txt
 
 __Tab completion.__ The tab button can be used to complete file/directory names and do quick lookup of commands.
 
-## Pipe
-
-FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN FILL IN
+__Pipe.__ The output from one unix command can be sent as input to another using a pipe. The symbol for this pipe is the vertical bar `|`. For example, the following commands will first 'cut' the fourth column from a bed file, sort that column, count the number of occurences of unique strings, and then sort (in descending order):
 
 ```bash
-cut -f4 my.bed | sort | uniq -c | sort -nk1,1
+cut -f4 my.bed | sort -nk1,1 | uniq -c | sort -nk1,1
 ```
 
-## Loops
-
-Have a command that needs to be repeated mutliple times? Write a loop! To successfully execute a loop, two features of the shell need to be understood: (i) variables and (ii) wildcards (we saw one earlier).
+__Loops.__ Have a command that needs to be repeated mutliple times? Write a loop! To successfully execute a loop, two features of the shell need to be understood: (i) variables and (ii) wildcards (we saw one earlier).
 
 A __variable__ is a placeholder for some text such as a directory name, filename, number, sentence etc. A variable is always initialised using the name you designate for the variable (e.g. file, direc, superman, x, etc.) It can be whatever you want once it is a single word without spaces or special characters. The variable is then called using a `$` in front of the name.
 
@@ -244,7 +240,9 @@ done
 
 __Grep.__ Grep is a tool for searching files for a specific content. It has many applications and some will be explained here. The basic syntax of grep is:
 
+```bash
 grep \<search pattern\> \<filename\>
+```
 
 Flags can be used to modify these results in many useful ways. For example:
 
@@ -258,6 +256,12 @@ grep -B 5 \<search pattern\> \<filename\> will print the 5 lines that come befor
 These can then be combined so that, for example, grep -vc <search pattern> <filename> will return a count of the lines that don’t contain the provided search pattern
 
 http://evomics.org/learning/unix-tutorial/
+
+__Sed.__ 
+
+__PATH.__
+
+__UNDER CONSTRUCTION__
 
 __Basename.__
 
