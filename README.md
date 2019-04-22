@@ -255,13 +255,58 @@ grep -B 5 \<search pattern\> \<filename\> will print the 5 lines that come befor
 
 These can then be combined so that, for example, grep -vc <search pattern> <filename> will return a count of the lines that don’t contain the provided search pattern
 
-http://evomics.org/learning/unix-tutorial/
+__.bash_profile, .bashrc, alias and PATH.__
 
-__Sed.__ 
 
-__PATH.__
+The behaviour of the terminal shell can be modified by adding commands to one of two hidden files: `.bashrc` and `.bash_profile`, which are found in the home directory. In the Mac OSX terminal these files do the same thing. The `.bashrc` runs each time a terminal window is opened whereas `.bash_profile` only runs the first time a terminal is opened.
 
-__UNDER CONSTRUCTION__
+The two main things we will use the `.bash_profile` file for is creating aliases and modifying the PATH.
+
+An alias allows you to create shortcut commands that point to longer commands, thus saving on time. For example, if we used `ls -lh` often and wanted a shortcut for this we could create an alias `lsl` that would run this command for us.
+
+On a Mac edit the .bashrc:
+
+```bash
+vim ~/.bashrc
+```
+
+Within this file we will create a new alias for `ls -lh` by typing `alias lsl='ls -lh'`. Save and close the file. Refresh your `.bashrc` to enact the change(s):
+
+```bash
+source ~/.bashrc
+```
+
+Now if you type `lsl` the command should run as specified.
+
+Aliases can be used to create command shortcuts for any task. This is useful particularly for repeated tasks such as `ssh` and `scp` to locations with long addresses. For instance, lets say in order to `shh` to the university's cluster I had to type:
+
+```bash
+ssh username@sapelo2.gacrc.uga.edu
+```
+
+This would become tedious. Instead I can create an alias `sapelo2` to enact this command: `alias sapelo2='ssh username@sapelo2.gacrc.uga.edu'`. Thus, I just type `sapelo2` on the terminal and the `ssh` command is run for me.
+
+The commands that are run within the terminal such as `cd`, `less`, `ls` etc. are executable files that have been created and stored in specific folders in the system. The system then knows where to look for these programs by searching in directories specified in the environment variable PATH. You can view your current PATH by typing:
+
+```bash
+echo $PATH
+```
+
+This will output something like the following, `/usr/local/bin:/usr/bin:/bin`.
+
+This means that the system can run executable programs that are stored in these three folders (separated by the :) without the user having to specify the absolute path to the folder. A user may wish to modify this path to add other folders where such programs can be stored. This is useful for downloaded programs which you want to be able to run.
+
+For instance, if you download the [BLAST+ package from NCBI](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download) and store it in your home directory, each time you wish to run `blastn` in the terminal you would have to type the full program path. It is good practise  to create a `bin` folder in a directory (like `home`) to store all downloaded programs. You then add this folder to the path in the `.bashrc`. Thus, if a folder `/home/username/bin/` exists and `blastn` is inside this we can add the folder to the path by editing the `.bashrc` file:
+
+```bash
+vim ~/.bashrc
+export PATH=$PATH:/home/username/bin
+```
+Save the `.bashrc` file and exit. You can reload the `.bashrc` file manually again by typing `source .bashrc`.
+
+Any executable program placed in this folder (e.g. `blastn`, `raxml`, `mafft`, etc.) can be called directly from the command line, similar to `cd` etc.
+
+## Useful recipes
 
 __Basename.__
 
@@ -279,4 +324,8 @@ __Search and replace.__
 
 ```bash
 awk  '{gsub("/","\t",$0); print;}' filename
+```
+
+```bash
+sed -i 's/search/replace/g' filename
 ```
